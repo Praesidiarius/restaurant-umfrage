@@ -1,28 +1,37 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <v-app>
+    <v-app-bar
+      app
+      color="primary"
+      dark
+    >
+      <div class="d-flex align-center mx-auto">
+        <span class="text-md-h4">
+          {{ $t('title') }}
+        </span>
+      </div>
+
+      <v-spacer></v-spacer>
+
+      <div class="d-flex align-end mx-auto">
+        <LocaleSwitcher></LocaleSwitcher>
+      </div>
+    </v-app-bar>
+
+    <v-main>
+      <router-view/>
+    </v-main>
+  </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 
+import LocaleSwitcher from "@/components/LocaleSwitcher";
 export default {
   name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+  components: {LocaleSwitcher},
+  data: () => ({
+    //
+  }),
+};
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
