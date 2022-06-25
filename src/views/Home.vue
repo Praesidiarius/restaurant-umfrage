@@ -308,7 +308,7 @@ export default {
             lang: this.$i18n.locale
           })
         };
-        fetch("http://api.nathanael-k.me/poll", requestOptions)
+        fetch("https://poll-api.cut.gd/poll", requestOptions)
             .then(async response => {
               this.loading = false;
 
@@ -354,6 +354,8 @@ export default {
               }
             })
             .catch(error => {
+              this.loading = false;
+
               Swal.fire({
                 icon: 'error',
                 title: this.$t('errortitle'),
